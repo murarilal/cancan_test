@@ -5,7 +5,7 @@ class Ability
     user ||= User.new # guest user
 
     if user.role? :super_admin
-        can :manage, :all
+        can :read,[ Product ]
     elsif user.role? :product_admin
         can :manage, [Product, Asset, Issue]
     elsif user.role? :product_team

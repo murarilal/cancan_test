@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_and_belongs_to_many :roles
+  has_many :products
+  has_many :issues
 
   def role?(role)
       return !!self.roles.find_by_name(role.to_s.camelize)
